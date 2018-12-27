@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/icon.css">
 </head>
 
-<body>
+<body onload="scaleLayout()">
     <div class="layout">
         <header>
             <div class="headerwrapper">
@@ -363,6 +363,23 @@
             </div>
 
         </footer>
+
+        <script>
+            function scaleLayout () {
+                var container = document.getElementsByClassName('layout')[0];
+                var width = document.body.offsetWidth;
+
+                if (width > container.offsetWidth) {
+
+                    var scaleWidth = width / container.offsetWidth;
+
+                    console.log(document.body.offsetWidth + ", " + scaleWidth);
+
+                    // 横向缩放、纵向不变
+                    container.style.transform = 'scaleX(' + scaleWidth + ')';
+                }
+            }
+        </script>
     </div>
 </body>
 
